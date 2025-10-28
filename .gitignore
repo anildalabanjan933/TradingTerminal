@@ -19,7 +19,10 @@ frontend_draggrid/dist/
 # Logs and temp data
 *.log
 *.csv
+# Ignore all JSON except package files
 *.json
+!frontend_draggrid/package.json
+!frontend_draggrid/package-lock.json
 logs/
 log.txt
 error_logs.txt

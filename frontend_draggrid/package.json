@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm install webpack webpack-cli --force",
+    "postinstall": "npm install webpack webpack-cli html-webpack-plugin --force",
     "start": "webpack serve --mode development --open --hot --port 3000",
     "build": "webpack --mode production"
   },
@@ -16,6 +16,7 @@
     "babel-loader": "^9.1.3",
     "webpack": "^5.102.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.3"
+    "webpack-dev-server": "^5.0.3",
+    "html-webpack-plugin": "^5.5.3"
   }
 }

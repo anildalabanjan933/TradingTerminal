@@ -1,0 +1,365 @@
+/* ============================
+   BASE LAYOUT RESET + STYLES
+   ============================ */
+
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background: #0e0e0e;
+  color: #e0e0e0;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+/* ============================
+   CORE GRID STRUCTURE
+   ============================ */
+.layout-main {
+  display: grid;
+  grid-template-columns: 60px 1fr 320px; /* left | center | right */
+  grid-template-rows: auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.left-sidebar {
+  background: #0d0d0d;
+  border-right: 1px solid #222;
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+  background: #0b0b0b;
+  height: 100%;
+}
+
+.top-section {
+  flex: 0 0 76px; /* TopBar + Tab + Toolbar */
+}
+
+.chart-section {
+  flex: 1;
+  overflow: hidden;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+/* NOTE: bottom-section height used by ChartGridSkeleton calc */
+.bottom-section {
+  flex: 0 0 150px;
+  border-top: 1px solid #222;
+}
+
+.right-sidebar {
+  background: #0c0c0c;
+  border-left: 1px solid #222;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ===================== */
+/* LAYOUT CONTROL BAR    */
+/* ===================== */
+.layout-controlbar {
+  display: flex;
+  align-items: center;
+  background: #0f0f0f;
+  border-bottom: 1px solid #222;
+  padding: 4px 8px;
+  gap: 8px;
+  font-size: 12px;
+}
+.layout-controlbar button,
+.layout-controlbar select {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #ccc;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.layout-controlbar button:hover,
+.layout-controlbar select:hover {
+  background: #222;
+}
+.profile-status {
+  margin-left: auto;
+  color: #777;
+  font-style: italic;
+  font-size: 11px;
+}
+
+/* ============================ */
+/* TOP BAR + WATCHLIST STYLING  */
+/* ============================ */
+.topbar-content {
+  display: flex;
+  gap: 12px;
+  padding: 4px 8px;
+  background: #121212;
+  border-bottom: 1px solid #222;
+  align-items: center;
+  font-size: 12px;
+}
+.market-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 2px 6px;
+  min-width: 70px;
+}
+.symbol {
+  color: #aaa;
+  font-weight: 600;
+}
+.percent.green {
+  color: #00ff7f;
+}
+.percent.red {
+  color: #ff4d4d;
+}
+.price {
+  color: #ccc;
+  font-size: 11px;
+}
+
+/* Watchlist table */
+.watchlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.watchlist-table th,
+.watchlist-table td {
+  border-bottom: 1px solid #222;
+  padding: 4px 6px;
+  text-align: right;
+}
+.watchlist-table th {
+  color: #777;
+}
+.watchlist-table tr:hover {
+  background: #1a1a1a;
+}
+.placeholder-text {
+  color: #555;
+  text-align: center;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+/* ============================ */
+/* CHART GRID AREA STYLING     */
+/* ============================ */
+
+/* Chart grid wrapper: fills available center area between top bars and bottom panels */
+.chart-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #222;
+  background: #0b0b0b;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Toolbar divider line (fixed, aligned with chart area) */
+.chart-toolbar-divider {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(100,100,100,0.14); /* slightly softer divider */
+  opacity: 1;
+}
+
+/* grid for up to 4 charts (2x2) */
+.chart-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  padding: 6px 8px 8px 8px;
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-items: stretch;
+  min-height: 280px;
+}
+
+.chart-cell {
+  border: 1px solid #222;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfcfcf;
+  background-color: #0f0f0f;
+  overflow: hidden;
+  position: relative;
+}
+
+/* small responsive tweak: when viewport becomes narrow in height, switch to single column */
+@media (max-height: 720px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+
+/* chart container filler (if you use an embedded canvas) */
+.chart-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* updated-time sits on toolbar area if used */
+.updated-time {
+  margin-left: auto;
+  color: #888;
+  font-style: italic;
+  font-size: 11px;
+}
+
+/* ============================== */
+/* TRADE PANEL + RISK MANAGER UI  */
+/* ============================== */
+
+/* Bottom panels container — LOCKED EQUAL SPLIT */
+.bottom-panels {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 160px; /* default height; if you want taller, update here and ChartGridSkeleton.jsx calc */
+  border-top: 1px solid #222;
+  background: #0e0e0e;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Equal split children — two panels always exactly 50:50 */
+.bottom-panels .trade-panel,
+.bottom-panels .risk-panel {
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #222;
+  box-sizing: border-box;
+}
+
+/* remove left border for the very first panel to avoid double border */
+.bottom-panels .trade-panel {
+  border-left: none;
+}
+
+/* internal trade / risk form styling */
+.trade-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.trade-form label {
+  color: #aaa;
+  font-size: 12px;
+}
+.trade-form select,
+.trade-form input {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #ccc;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+.order-buttons {
+  display: flex;
+  gap: 6px;
+}
+.order-buttons button {
+  flex: 1;
+  padding: 4px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.buy-btn {
+  background: rgba(0,255,127,0.2);
+  color: #00ff7f;
+}
+.sell-btn {
+  background: rgba(255,77,77,0.12);
+  color: #ff4d4d;
+}
+.close-btn {
+  background: #444;
+  color: #ccc;
+}
+.order-status {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #aaa;
+  font-style: italic;
+}
+.positions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.positions-table th,
+.positions-table td {
+  border-bottom: 1px solid #222;
+  padding: 4px 6px;
+  text-align: right;
+}
+.positions-table th {
+  color: #777;
+}
+.positions-table tr:hover {
+  background: #1a1a1a;
+}
+.risk-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px solid #222;
+  font-size: 12px;
+  color: #aaa;
+}
+.total-pnl {
+  font-weight: 700;
+}
+
+/* ============================== */
+/* SMALL HELPERS                 */
+/* ============================== */
+
+.hidden {
+  display: none !important;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-dim {
+  color: #9b9b9b;
+}
+
+/* End of base.css */

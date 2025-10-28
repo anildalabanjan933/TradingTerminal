@@ -1,0 +1,62 @@
+/* ===================================================================
+   🎨 PHASE 25.62 — FINAL POLISHED SKELETON (DARK THEME + AUTO-FILL)
+   Compact top-3 rows | 0-gap grid | Smooth transition | Shutters
+   =================================================================== */
+
+html, body, #root, #terminal-root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f1116;
+  color: #e0e6f0;
+  font-family: "Inter", sans-serif;
+  font-weight: normal;
+  overflow: hidden;
+}
+
+/* === PANELS === */
+.panel {
+  border: 1px solid #1f2330;
+  background: #131722;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+}
+.panel:hover {
+  box-shadow: 0 0 6px rgba(41, 121, 255, 0.35);
+}
+
+/* === TITLE BAR INSIDE PANEL === */
+.panel-title {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 8px;
+  border-bottom: 1px solid #1f2330;
+  font-size: 13px;
+  background: #0f1116;
+  color: #9ea5b5;
+}
+
+/* === SHUTTER BUTTONS === */
+.shutter-btn, .bottom-shutter {
+  background: #1f2330;
+  color: #e0e6f0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 12px;
+  position: absolute;
+  transition: all 0.2s ease;
+}
+.shutter-btn:hover, .bottom-shutter:hover {
+  background: #2979ff;
+  color: #fff;
+}
+
+/* === GRID AREA ALIGNMENTS === */
+#terminal-root {
+  gap: 0;
+  box-sizing: border-box;
+}

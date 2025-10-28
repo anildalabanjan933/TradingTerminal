@@ -1,0 +1,173 @@
+/* =============================================================
+📄 FILE: terminalFrame.css — Stage 6H
+============================================================= */
+
+.terminal-frame {
+  background: #000;
+  color: #0ff;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+}
+
+/* 🟦 Top Toolbar */
+.top-toolbar {
+  height: 42px;
+  background: #111;
+  border-bottom: 1px solid #0ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  font-weight: 700;
+}
+.top-toolbar .left,
+.top-toolbar .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toggle-btn {
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 3px 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.dot {
+  color: #0f0;
+}
+
+/* 🟨 Chart Toolbar */
+.chart-toolbar {
+  height: 36px;
+  background: #0a0a0a;
+  border-bottom: 1px solid #0ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+}
+.chart-toolbar button,
+.chart-toolbar select {
+  background: #111;
+  color: #0ff;
+  border: 1px solid #0ff;
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+/* 🟩 Sidebar */
+.sidebar {
+  position: fixed;
+  top: 42px;
+  left: -260px;
+  height: calc(100vh - 42px);
+  width: 240px;
+  background: #0a0a0a;
+  border-right: 1px solid #0ff;
+  color: #0ff;
+  transition: all 0.25s ease-in-out;
+  z-index: 999;
+}
+.sidebar.open {
+  left: 0;
+}
+.sidebar-inner {
+  padding: 12px;
+  font-size: 13px;
+}
+
+/* 🟦 Grid Section */
+.grid-wrapper {
+  flex: 1;
+  overflow: hidden;
+  background: #000;
+  padding: 6px;
+}
+
+.chart-box {
+  background: #0d1117;
+  border: 1px solid #0ff;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.chart-header {
+  background: #111;
+  color: #0ff;
+  padding: 4px 8px;
+  border-bottom: 1px solid #0ff;
+  font-weight: 700;
+  cursor: move;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 🟥 Trade Drawer */
+.trade-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -240px;
+  height: 240px;
+  background: #0a0a0a;
+  border-top: 1px solid #0ff;
+  color: #0ff;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+}
+.trade-drawer.open {
+  bottom: 0;
+}
+.trade-header {
+  background: #111;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #0ff;
+  font-weight: 700;
+}
+.trade-header button {
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.trade-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-top: 40px;
+}
+.trade-body button {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.trade-body .buy {
+  background: #238636;
+  color: #fff;
+}
+.trade-body .sell {
+  background: #da3633;
+  color: #fff;
+}
+.trade-body .close {
+  background: #444;
+  color: #fff;
+}

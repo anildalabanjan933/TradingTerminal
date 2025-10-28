@@ -1,0 +1,146 @@
+/* =============================================================
+📄 FILE: layoutContainer.css — Stage 6G
+============================================================= */
+
+.frame6g {
+  background: #000;
+  color: #0ff;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: Inter, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 40px;
+  background: #111;
+  border-bottom: 1px solid #0ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-weight: 700;
+}
+.logo {
+  font-size: 16px;
+}
+.topbar-actions button {
+  background: transparent;
+  color: #0ff;
+  border: none;
+  margin: 0 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.status-dot {
+  color: #0f0;
+  font-size: 13px;
+}
+
+.chart-toolbar {
+  height: 36px;
+  background: #0a0a0a;
+  border-bottom: 1px solid #0ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+}
+.chart-toolbar button,
+.chart-toolbar select {
+  background: #111;
+  color: #0ff;
+  border: 1px solid #0ff;
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.grid-wrapper {
+  flex: 1;
+  overflow: hidden;
+  background: #000;
+  padding: 4px;
+}
+
+.chart-box {
+  background: #0d1117;
+  border: 1px solid #0ff;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.chart-header {
+  background: #111;
+  color: #0ff;
+  padding: 4px 8px;
+  border-bottom: 1px solid #0ff;
+  font-weight: 700;
+  cursor: move;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 🔹 Trade Drawer */
+.trade-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -240px;
+  height: 240px;
+  background: #0a0a0a;
+  border-top: 1px solid #0ff;
+  color: #0ff;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+}
+.trade-drawer.open {
+  bottom: 0;
+}
+.trade-header {
+  background: #111;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #0ff;
+  font-weight: 700;
+}
+.trade-header button {
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.trade-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-top: 40px;
+}
+.trade-body button {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.trade-body .buy {
+  background: #238636;
+  color: #fff;
+}
+.trade-body .sell {
+  background: #da3633;
+  color: #fff;
+}
+.trade-body .close {
+  background: #444;
+  color: #fff;
+}

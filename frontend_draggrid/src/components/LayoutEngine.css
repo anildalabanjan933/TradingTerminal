@@ -1,0 +1,91 @@
+/* ============================================================================
+   🎨 LAYOUT ENGINE — TradingView-Style Skeleton (Dark Theme)
+   Handles drag lines, grid visuals, transitions, and full-fit auto layout.
+   ============================================================================ */
+
+html, body, #root, #terminal-root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f1116;
+  color: #e0e6f0;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+
+/* === GRID CONTAINER === */
+.layout-engine {
+  position: relative;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-rows: 32px 32px 32px 1fr 160px;
+  grid-template-columns: 240px 1fr 300px;
+  background: #0f1116;
+  border-top: 1px solid #1f2330;
+  transition: all 0.15s ease-in-out;
+}
+
+/* === PANELS === */
+.panel {
+  border: 1px solid #1f2330;
+  background: #131722;
+  overflow: hidden;
+  transition: all 0.15s ease-in-out;
+}
+.panel:hover {
+  box-shadow: 0 0 6px rgba(41, 121, 255, 0.35);
+}
+
+/* === TOP 3 ROWS === */
+.topbar, .tabrow, .toolbar {
+  height: 32px;
+  line-height: 32px;
+  background: #0f1116;
+  color: #9ea5b5;
+  padding-left: 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #1f2330;
+}
+
+/* === DRAG LINES === */
+.drag-line {
+  position: absolute;
+  background: #1f2330;
+  z-index: 10;
+  transition: background 0.15s ease;
+}
+.drag-line.vertical {
+  width: 3px;
+  top: 0;
+  bottom: 0;
+  cursor: ew-resize;
+}
+.drag-line.horizontal {
+  height: 3px;
+  left: 0;
+  right: 0;
+  cursor: ns-resize;
+}
+.drag-line:hover {
+  background: #2979ff;
+  box-shadow: 0 0 4px #2979ff;
+}
+
+/* === SHUTTER BUTTONS === */
+.shutter-btn, .bottom-shutter {
+  background: #1f2330;
+  color: #e0e6f0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 12px;
+  position: absolute;
+  transition: all 0.2s ease;
+}
+.shutter-btn:hover, .bottom-shutter:hover {
+  background: #2979ff;
+  color: #fff;
+}

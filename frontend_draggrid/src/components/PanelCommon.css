@@ -1,0 +1,126 @@
+/* ============================================================================
+   🎨 PANEL COMMON STYLES — Shared across Chart / Watchlist / Trade / Risk
+   Compact internal header + dark TV theme
+   ============================================================================ */
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #131722;
+  border: 1px solid #1f2330;
+  overflow: hidden;
+  color: #e0e6f0;
+  box-sizing: border-box;
+}
+
+.panel-header {
+  height: 22px;
+  line-height: 22px;
+  font-size: 12px;
+  padding: 0 6px;
+  background: #0f1116;
+  border-bottom: 1px solid #1f2330;
+  color: #a5acb9;
+  flex-shrink: 0;
+}
+
+/* === CHART GRID === */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+  flex: 1;
+  padding: 4px;
+}
+.chart-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1f2330;
+  background: #0f1116;
+  font-size: 13px;
+  color: #888;
+}
+
+/* === WATCHLIST === */
+.list-body {
+  flex: 1;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+}
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 4px;
+  border-bottom: 1px solid #1f2330;
+}
+.green { color: #00e676; }
+.red { color: #ff5252; }
+
+/* === TRADE PANEL === */
+.trade-body {
+  flex: 1;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.order-row input {
+  width: 80px;
+  background: #0f1116;
+  border: 1px solid #1f2330;
+  color: #e0e6f0;
+  padding: 2px 4px;
+}
+.button-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 4px;
+}
+.button-row button {
+  flex: 1;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px 0;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+.buy { background: #00c853; }
+.sell { background: #e53935; }
+.closeall { background: #616161; }
+
+/* === RISK MANAGER === */
+.risk-body {
+  flex: 1;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.metric-row input {
+  width: 60px;
+  background: #0f1116;
+  border: 1px solid #1f2330;
+  color: #e0e6f0;
+  padding: 2px 4px;
+}

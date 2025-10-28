@@ -1,0 +1,48 @@
+# =====================================================
+# CLEAN .GITIGNORE — TRADING TERMINAL REPO (SAFE LIST)
+# =====================================================
+
+# Python cache / virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# Node / React build artifacts
+node_modules/
+frontend_draggrid/build/
+frontend_draggrid/dist/
+
+# Logs and temp data
+*.log
+*.csv
+*.json
+logs/
+log.txt
+error_logs.txt
+alert_logs.csv
+trade_logs.csv
+
+# Streamlit + cache
+.streamlit/
+.cache/
+.snapshots/
+
+# Windows junk
+desktop.ini
+Thumbs.db
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.code-workspace
+
+# Other large / local only
+safety/
+final_build/
+tests/
+telegram/
+docs/
